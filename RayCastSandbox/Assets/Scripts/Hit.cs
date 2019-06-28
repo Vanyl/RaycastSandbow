@@ -4,27 +4,28 @@ using UnityEngine;
 
 public class Hit : MonoBehaviour
 {
-    Vector3 fwd = transform.forward;
+    Vector3 fwd;
+    public float scope;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+         fwd = transform.forward;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.DrawRay(transform.position, fwd, Color.blue);
+        Color color = Color.blue;
 
-        if (Physics.Raycast(transform.position, fwd))
+        if (Physics.Raycast(transform.position, fwd, scope))
         {
             print("HIT");
+            color = Color.green;
         }
 
-        else
-        {
-            Debug.DrawRay(transform.position, fwd, Color.red);
-        }
+        Debug.DrawRay(transform.position, fwd * scope, color);
+
+
     }
 }
