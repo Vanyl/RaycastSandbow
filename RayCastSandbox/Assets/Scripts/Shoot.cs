@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Shoot : MonoBehaviour
 {
+
     // Start is called before the first frame update
     void Start()
     {
@@ -15,7 +16,7 @@ public class Shoot : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0))
         {
-            Vector3 start = transform.position;
+            Vector3 start = transform.position; //
             Vector3 end = transform.position + transform.forward * 1000;
 
             RaycastHit hit;
