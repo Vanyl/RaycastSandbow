@@ -26,7 +26,8 @@ public class Hit : MonoBehaviour
                 color = new Color(1f, 0.5f, 0.5f); //couleur si touchée
             }
 
-            Debug.DrawRay(transform.position, fwd * scope, color); //couleur si autre objet touché
+            //Debug.DrawRay(transform.position, fwd * scope, color); //couleur si autre objet touché
+            Debug.DrawLine(transform.position, hit.point , color); //va jusqu'à l'endroit où je touche
         }
     }
 }
