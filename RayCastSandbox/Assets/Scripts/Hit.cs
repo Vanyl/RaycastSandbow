@@ -7,25 +7,26 @@ public class Hit : MonoBehaviour
     Vector3 fwd;
     public float scope;
 
-    // Start is called before the first frame update
+
     void Start()
     {
-         fwd = transform.forward;
+        fwd = transform.forward;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        Color color = Color.blue;
+        Color color = Color.green;
+        RaycastHit hit;
 
-        if (Physics.Raycast(transform.position, fwd, scope))
+        if (Physics.Raycast(transform.position, fwd, out hit, scope))
         {
-            print("HIT");
-            color = Color.green;
+            if (hit.transform.tag == "monster")
+            {
+                print("Monster HIT " + hit.distance);
+                color = new Color(1f, 0.5f, 0.5f); //couleur si touchée
+            }
+
+            Debug.DrawRay(transform.position, fwd * scope, color); //couleur si autre objet touché
         }
-
-        Debug.DrawRay(transform.position, fwd * scope, color);
-
-
     }
 }
